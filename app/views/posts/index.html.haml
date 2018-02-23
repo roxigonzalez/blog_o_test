@@ -1,0 +1,30 @@
+
+.min-menu
+  .container
+    .row
+      .col-md-12.text-right
+        - unless user_signed_in?
+          = link_to "Iniciar sesión", new_user_session_path, class: "link"
+          = link_to "Registrarse", new_user_registration_path
+        - else
+          = link_to "Cerrar sesión", destroy_user_session_path, method: :delete
+
+= render "shared/noty"
+
+.container
+  .row
+    .col-md-9
+      %h2 Publicaciones
+    - if user_signed_in?
+      .col-md-3.text-right
+        %p
+          = link_to "Nueva publicación", new_post_path, class: "button"
+  .row
+    .col-md-12
+      - if posts
+        .row
+          - posts.each do |post|
+            .col-md-4
+              %h3= post.title
+              %p
+                = raw(post.content.truncate(50))

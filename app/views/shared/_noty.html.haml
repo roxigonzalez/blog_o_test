@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  - if value.length > 0
+    %div#flash-messages.flash-messages{class: class_key(key), role: "alert" }
+      %button{ class: "close", data: {dismiss: "alert"}, "aria-label": "Cerrar"}
+        %span
+          &times;
+      = value
