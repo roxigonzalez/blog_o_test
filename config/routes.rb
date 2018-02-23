@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'comments/create'
 
   root to: 'posts#index'
   resources :posts do
     resources :comments
   end
 
+  resources :authors do
+    get :my_posts, on: :member
+  end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-12
+      %h1  Editar publicación
+  .row
+    .col-md-12
+      = render "form", post: post
+      = link_to "Regresar", :back, class: "btn btn-link"

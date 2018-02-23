@@ -13,3 +13,8 @@
           = f.button :submit, "Log in"
 
           = link_to "Regresar", :back, class: "btn btn-link"
+
+      %p
+        %strong
+          No tienes una cuenta?
+          = link_to "Registrarse", new_user_registration_path

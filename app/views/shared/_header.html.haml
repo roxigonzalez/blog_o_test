@@ -1,4 +1,13 @@
 %header
-  .container
-    .text-right
-      = image_tag 'ogilvyheader.jpg'
+  .min-menu
+    .container
+      .row
+        .col-md-12.text-right
+          - unless user_signed_in?
+            = link_to "Iniciar sesión", new_user_session_path, class: "link"
+            = link_to "Registrarse", new_user_registration_path
+          - else
+            = link_to "Mis publicaciones", my_posts_author_path(current_user)
+            = link_to "Cerrar sesión", destroy_user_session_path, method: :delete
+  .banner
+    = image_tag "blog-banner.jpg", width: "100%"

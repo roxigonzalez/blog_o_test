@@ -1,18 +1,21 @@
+
 .container
-  .text-right
+  .row
     = link_to "Todas las publicaciones", root_path, class: "btn btn-link"
   .row
     .col-md-12
-      %h3= post.title
-      %small
-        %i.fa.fa-user
-        = post.author_name
-      %br
-      %small
-        %i.fa.fa-calendar
-          = post.created_at.strftime("%d/%m/%Y")
-      %p
+      %article
+        %h3= post.title
+        %small
+          %i.fa.fa-user
+          = post.author_fulname
+        %br
+        %small
+          %i.fa.fa-calendar
+            = post.created_at.strftime("%d/%m/%Y")
         = raw(post.content)
+        - if user_signed_in? && current_user == post.author
+          = link_to "Editar", edit_post_path(post)
 
   %br
   %br

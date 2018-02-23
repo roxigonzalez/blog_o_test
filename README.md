@@ -1,22 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Versiones que se utilizó en el desarrollo de este proyecto:
 
-Things you may want to cover:
+## Ruby 2.4.0
 
-* Ruby version
+## Rails 5.0.3
 
-* System dependencies
+## PostgreSQL 9.5.11
 
-* Configuration
 
-* Database creation
+## Instalación
 
-* Database initialization
+1. Ejecutar `bundle install`
 
-* How to run the test suite
+2. Renombre database_template.yml a database.yml y remplace  las credenciales de postgres
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Crear la base `rake db:create`
 
-* Deployment instructions
+4. Montar el dump de la base si lo desea, se encuentra en la carpeta `docs`. De lo contrario, ejecutar las migraciones `rake db:migrate`
+
+5. Levantar servidor `rails s`
+
+http://localhost:3000

@@ -1,0 +1,25 @@
+.container
+  %h1
+    Mis publicaciones
+
+  - if @my_posts
+    .row.grid
+      - @my_posts.each do |post|
+        .col-md-4
+          %div.article-grid
+            %h3= post.title
+            %br
+            %small
+              %i.fa.fa-calendar
+                = post.created_at.strftime("%d/%m/%Y")
+            %p
+              = raw(post.content.truncate(200))
+            .text-left
+              = link_to "Ver más", post_path(post)
+            .text-right
+              = link_to "Eliminar", post_path(post), method: :delete, class: "btn btn-default"
+              = link_to "Editar", edit_post_path(post), class:  "btn btn-default"
+
+
+  %p
+    = link_to "Nueva publicación", new_post_path, class: "button"
