@@ -1,0 +1,9 @@
+.panel
+  .card-body
+    %h4
+      %i.fa.fa-user-circle
+      = comment.username
+      %small
+        = comment.created_at.strftime("%d/%m/%Y")
+    %p
+      =comment.content

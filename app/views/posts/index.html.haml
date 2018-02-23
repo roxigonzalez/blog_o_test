@@ -26,5 +26,13 @@
           - posts.each do |post|
             .col-md-4
               %h3= post.title
+              %small
+                %i.fa.fa-user
+                = post.author_name
+              %br
+              %small
+                %i.fa.fa-calendar
+                  = post.created_at.strftime("%d/%m/%Y")
               %p
                 = raw(post.content.truncate(50))
+              = link_to "Ver más", post_path(post)

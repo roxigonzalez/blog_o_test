@@ -1,0 +1,4 @@
+$(".comment-list").append("<%= escape_javascript render(partial: 'comments/comment', locals: { comment: @comment }) %>");
+$("form.new_comment")[0].reset();
+
+alert("Comentario agregado");

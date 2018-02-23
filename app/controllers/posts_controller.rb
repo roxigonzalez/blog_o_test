@@ -2,9 +2,9 @@ class PostsController < ApplicationController
 
   respond_to :html
 
-  helper_method :posts, :post
+  helper_method :posts, :post, :comment_init
 
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show ]
 
 
   def create
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
+  def show
   end
 
   def update
@@ -35,8 +35,14 @@ class PostsController < ApplicationController
       case action_name
       when 'new', 'create'
         Post.new(author_id: current_user.id)
-      when 'edit', 'update'
+      when 'edit', 'update', 'show'
         Post.find(params[:id])
       end
   end
+
+
+  def comment_init
+    @comment_init ||= post.comments.new if action_name == "show"
+  end
+
 end

@@ -60,3 +60,4 @@ gem 'kaminari', '~> 1.0.1'
 gem 'simple_form', '~> 3.4.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'summernote-rails', '~> 0.8.10.0'
+gem "paperclip", "~> 5.2.1"
